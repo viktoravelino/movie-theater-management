@@ -19,11 +19,11 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.printwayy.popcorn.controllers.MovieController;
 import com.printwayy.popcorn.controllers.SessionController;
-import com.printwayy.popcorn.models.AnimationType;
-import com.printwayy.popcorn.models.AudioType;
 import com.printwayy.popcorn.models.Movie;
 import com.printwayy.popcorn.models.Session;
 import com.printwayy.popcorn.models.SessionRequestParser;
+import com.printwayy.popcorn.models.enums.AnimationType;
+import com.printwayy.popcorn.models.enums.AudioType;
 
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)

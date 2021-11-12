@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.printwayy.popcorn.models.enums.AnimationType;
+import com.printwayy.popcorn.models.enums.AudioType;
+
 @Entity
 @Table(name = "sessions")
 public class Session {

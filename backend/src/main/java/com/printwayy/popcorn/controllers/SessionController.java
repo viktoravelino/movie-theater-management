@@ -17,16 +17,16 @@ import com.printwayy.popcorn.models.SessionRequestParser;
 import com.printwayy.popcorn.services.SessionService;
 
 @RestController
-@RequestMapping("/api/sessions")
+@RequestMapping("${api.url}/sessions")
 public class SessionController {
 
 	@Autowired
 	SessionService sessionSevice;
 
 	@PostMapping
-	public Session insertOrChangeSession(@RequestBody SessionRequestParser sessionJSON) { // It parses the JSON into a
+	public Session insertOrChangeSession(@RequestBody SessionRequestParser sessionRequestParser) { // It parses the JSON into a
 																							// temporary obj
-		return sessionSevice.save(sessionJSON);
+		return sessionSevice.save(sessionRequestParser);
 	}
 
 	@GetMapping

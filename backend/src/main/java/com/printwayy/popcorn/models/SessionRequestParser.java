@@ -2,6 +2,9 @@ package com.printwayy.popcorn.models;
 
 import java.util.Date;
 
+import com.printwayy.popcorn.models.enums.AnimationType;
+import com.printwayy.popcorn.models.enums.AudioType;
+
 public class SessionRequestParser {
 	private Long id;
 

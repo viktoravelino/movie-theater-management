@@ -16,7 +16,7 @@ import com.printwayy.popcorn.models.Movie;
 import com.printwayy.popcorn.services.MovieService;
 
 @RestController
-@RequestMapping("/api/movies")
+@RequestMapping("${api.url}/movies")
 public class MovieController {
 
 	@Autowired

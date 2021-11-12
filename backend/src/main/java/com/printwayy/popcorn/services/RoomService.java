@@ -5,8 +5,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.printwayy.popcorn.infra.StaticDataSource;
 import com.printwayy.popcorn.models.Room;
-import com.printwayy.popcorn.models.StaticDataSource;
 import com.printwayy.popcorn.repositories.RoomRepository;
 
 @Service

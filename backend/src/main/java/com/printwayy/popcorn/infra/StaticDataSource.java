@@ -1,7 +1,9 @@
-package com.printwayy.popcorn.models;
+package com.printwayy.popcorn.infra;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import com.printwayy.popcorn.models.Room;
 
 public class StaticDataSource {
 //	private List<Room> rooms = new ArrayList<>();
