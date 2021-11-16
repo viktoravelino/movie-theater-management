@@ -257,3 +257,15 @@ _14:00 = 1400_
   	}
   ]
   ```
+
+## Movie Sessions
+
+### Create a new movie session
+
+### Get all sessions
+
+### Get a session by its ID
+
+### Delete a session by its ID
+
+_A session only can be deleted with minimum of 10 days prior its date_
