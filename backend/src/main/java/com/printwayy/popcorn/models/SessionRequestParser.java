@@ -1,18 +1,15 @@
 package com.printwayy.popcorn.models;
 
-import java.util.Date;
-
 import com.printwayy.popcorn.models.enums.AnimationType;
 import com.printwayy.popcorn.models.enums.AudioType;
 
 public class SessionRequestParser {
-	private Long id;
 
-	private Date date;
+	private String date;
 
-	private Integer timeStart;
+	private String timeStart;
 
-	private Integer timeEnd;
+	private String timeEnd;
 
 	private Double ticketCost;
 
@@ -28,48 +25,27 @@ public class SessionRequestParser {
 		// TODO Auto-generated constructor stub
 	}
 
-	public SessionRequestParser(Date date, Integer timeStart, Integer timeEnd, Double ticketCost,
-			AnimationType animationType, AudioType audioType, Long movieId, Long roomId) {
-		super();
-		this.date = date;
-		this.timeStart = timeStart;
-		this.timeEnd = timeEnd;
-		this.ticketCost = ticketCost;
-		this.animationType = animationType;
-		this.audioType = audioType;
-		this.movieId = movieId;
-		this.roomId = roomId;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
-	public Integer getTimeStart() {
+	public String getTimeStart() {
 		return timeStart;
 	}
 
-	public void setTimeStart(Integer timeStart) {
+	public void setTimeStart(String timeStart) {
 		this.timeStart = timeStart;
 	}
 
-	public Integer getTimeEnd() {
+	public String getTimeEnd() {
 		return timeEnd;
 	}
 
-	public void setTimeEnd(Integer timeEnd) {
+	public void setTimeEnd(String timeEnd) {
 		this.timeEnd = timeEnd;
 	}
 

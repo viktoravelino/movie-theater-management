@@ -1,5 +1,7 @@
 package com.printwayy.popcorn.models;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.printwayy.popcorn.models.enums.AnimationType;
 import com.printwayy.popcorn.models.enums.AudioType;
@@ -22,13 +26,16 @@ public class Session {
 	private Long id;
 
 	@Column(nullable = false)
+	@Temporal(TemporalType.DATE)
 	private Date date;
 
 	@Column(nullable = false)
-	private Integer timeStart;
+	@Temporal(TemporalType.TIME)
+	private Date timeStart;
 
 	@Column(nullable = false)
-	private Integer timeEnd;
+	@Temporal(TemporalType.TIME)
+	private Date timeEnd;
 
 	@Column(nullable = false, scale = 2)
 	private Double ticketCost;
@@ -50,9 +57,8 @@ public class Session {
 
 	}
 
-	public Session(Date date, Integer timeStart, Integer timeEnd, Double ticketCost, AnimationType animationType,
+	public Session(Date date, Date timeStart, Date timeEnd, Double ticketCost, AnimationType animationType,
 			AudioType audioType, Movie movie, Long room) {
-		super();
 		this.date = date;
 		this.timeStart = timeStart;
 		this.timeEnd = timeEnd;
@@ -63,10 +69,10 @@ public class Session {
 		this.room = room;
 	}
 
-	public Session(SessionRequestParser sessionInfo, Movie movie, Long room) {
-		this.date = sessionInfo.getDate();
-		this.timeStart = sessionInfo.getTimeStart();
-		this.timeEnd = sessionInfo.getTimeEnd();
+	public Session(SessionRequestParser sessionInfo, Movie movie, Long room) throws ParseException {
+		this.date = new SimpleDateFormat("yyy-MM-dd").parse(sessionInfo.getDate());
+		this.timeStart = new SimpleDateFormat("HHmm").parse(sessionInfo.getTimeStart());
+//		this.timeEnd = new SimpleDateFormat("HHmm").parse(sessionInfo.getTimeEnd());
 		this.ticketCost = sessionInfo.getTicketCost();
 		this.animationType = sessionInfo.getAnimationType();
 		this.audioType = sessionInfo.getAudioType();
@@ -90,19 +96,19 @@ public class Session {
 		this.date = date;
 	}
 
-	public Integer getTimeStart() {
+	public Date getTimeStart() {
 		return timeStart;
 	}
 
-	public void setTimeStart(Integer timeStart) {
+	public void setTimeStart(Date timeStart) {
 		this.timeStart = timeStart;
 	}
 
-	public Integer getTimeEnd() {
+	public Date getTimeEnd() {
 		return timeEnd;
 	}
 
-	public void setTimeEnd(Integer timeEnd) {
+	public void setTimeEnd(Date timeEnd) {
 		this.timeEnd = timeEnd;
 	}
 

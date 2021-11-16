@@ -1,5 +1,11 @@
 package com.printwayy.popcorn.controllers;
 
+import java.text.ParseException;
+import java.util.Collection;
+import java.util.List;
+
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +24,13 @@ public class RoomController {
 	@GetMapping
 	public Iterable<Room> getAllRooms() {
 		return roomService.findAll();
+	}
+
+	@GetMapping(params = { "date" })
+	public List<Room> getRoomsAvailableByTime(@PathParam(value = "date") String date,
+			@PathParam(value = "startTime") String startTime, @PathParam(value = "endTime") String endTime)
+			throws ParseException {
+		return roomService.findAvailableRooms(date, startTime, endTime);
 	}
 
 }

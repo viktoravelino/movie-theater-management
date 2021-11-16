@@ -1,5 +1,6 @@
 package com.printwayy.popcorn.controllers;
 
+import java.text.ParseException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +25,9 @@ public class SessionController {
 	SessionService sessionSevice;
 
 	@PostMapping
-	public Session insertOrChangeSession(@RequestBody SessionRequestParser sessionRequestParser) { // It parses the JSON into a
-																							// temporary obj
+	public Session insertOrChangeSession(@RequestBody SessionRequestParser sessionRequestParser) throws ParseException { // It parses the JSON into a																			// temporary obj
 		return sessionSevice.save(sessionRequestParser);
+		
 	}
 
 	@GetMapping

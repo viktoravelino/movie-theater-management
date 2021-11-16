@@ -31,7 +31,7 @@ public class AuthController {
 
 	// Log a user in. Receives:
 	/*
-	 * { username:"asd", password:"123" }
+	 * { username:"foo", password:"12345" }
 	 */
 	@PostMapping("/authenticate")
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest)
