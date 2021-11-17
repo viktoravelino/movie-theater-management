@@ -1,7 +1,6 @@
 package com.printwayy.popcorn.controllers;
 
 import java.text.ParseException;
-import java.util.Collection;
 import java.util.List;
 
 import javax.websocket.server.PathParam;

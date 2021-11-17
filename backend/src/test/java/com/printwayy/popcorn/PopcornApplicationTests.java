@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.ArrayList;
-import java.util.Date;
+// import java.util.Date;
 import java.util.Optional;
 
 import org.junit.jupiter.api.DisplayName;
@@ -21,9 +21,9 @@ import com.printwayy.popcorn.controllers.MovieController;
 import com.printwayy.popcorn.controllers.SessionController;
 import com.printwayy.popcorn.models.Movie;
 import com.printwayy.popcorn.models.Session;
-import com.printwayy.popcorn.models.SessionRequestParser;
-import com.printwayy.popcorn.models.enums.AnimationType;
-import com.printwayy.popcorn.models.enums.AudioType;
+// import com.printwayy.popcorn.models.SessionRequestParser;
+// import com.printwayy.popcorn.models.enums.AnimationType;
+// import com.printwayy.popcorn.models.enums.AudioType;
 
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
@@ -78,15 +78,16 @@ class PopcornApplicationTests {
 		assertEquals(ArrayList.class, movies.getClass());
 	}
 
-	@Test
-	@Order(5)
-	@DisplayName("Create a new session into the database.")
-	public void createSession() {
-		Session session = sessionController.insertOrChangeSession(new SessionRequestParser(new Date(), 1400, 1500,
-				15.45, AnimationType.IMERSIVE, AudioType.DUBBED, movieId, 1L));
-		sessionId = session.getId();
-		assertEquals(Session.class, session.getClass());
-	}
+	// @Test
+	// @Order(5)
+	// @DisplayName("Create a new session into the database.")
+	// public void createSession() {
+	// Session session = sessionController.insertOrChangeSession(new
+	// SessionRequestParser(new Date(), 1400, 1500,
+	// 15.45, AnimationType.IMERSIVE, AudioType.DUBBED, movieId, 1L));
+	// sessionId = session.getId();
+	// assertEquals(Session.class, session.getClass());
+	// }
 
 	@Test
 	@Order(6)
