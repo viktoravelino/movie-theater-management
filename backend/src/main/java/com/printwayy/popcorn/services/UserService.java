@@ -17,9 +17,7 @@ public class UserService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 		Map<String, User> userDataSource = new HashMap<>();
 		userDataSource.put("foo", new User("foo", "12345", new ArrayList<>()));
-//		userDataSource.put("foo", new User("foo", "12345", new ArrayList<>()));
 		return userDataSource.get(userName);
-//		return new User("foo", "12345", new ArrayList<>());
 	}
 
 }
