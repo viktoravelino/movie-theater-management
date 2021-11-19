@@ -15,14 +15,18 @@ export const authSlice = createSlice({
 	name: "auth",
 	initialState,
 	reducers: {
-		setJwt: (state, action: PayloadAction<string>) => {
+		signInRedux: (state, action: PayloadAction<string>) => {
 			state.jwt = action.payload;
 			state.isLogged = true;
+		},
+		signOutRedux: (state) => {
+			state.jwt = null;
+			state.isLogged = false;
 		},
 	},
 });
 
-export const { setJwt } = authSlice.actions;
+export const { signInRedux, signOutRedux } = authSlice.actions;
 
 // export const selectJwtToken = (state: RootState) => state.auth.jwt;
 export const selectAuthState = (state: RootState) => state.auth;

@@ -1,10 +1,21 @@
 import { LoginPage } from "./pages/auth/LoginPage";
 import { Route, Routes } from "react-router-dom";
-import { useAppSelector } from "./app/hooks";
-import { selectAuthState } from "./features/user/authSlice";
+import { useAppDispatch, useAppSelector } from "./app/hooks";
+import { selectAuthState, signInRedux } from "./features/user/authSlice";
+import { useEffect } from "react";
+import { api } from "./services/api";
 
 function App() {
 	const { isLogged } = useAppSelector(selectAuthState);
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		const token = localStorage.getItem("token");
+		if (token) {
+			dispatch(signInRedux(token));
+			api.defaults.headers.common["Authorization"] = token;
+		}
+	}, [dispatch]);
 
 	return (
 		<div className="App">
