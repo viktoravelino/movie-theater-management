@@ -8,6 +8,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,7 @@ import com.printwayy.popcorn.models.auth.AuthenticationResponse;
 import com.printwayy.popcorn.security.JwtUtil;
 
 @RestController
+// @CrossOrigin(origins = { "*" })
 @RequestMapping("${api.url}/auth")
 public class AuthController {
 
@@ -49,5 +52,10 @@ public class AuthController {
 		final String jwt = jwtTokenUtil.generateToken(userDetails);
 
 		return ResponseEntity.ok(new AuthenticationResponse(jwt));
+	}
+
+	@GetMapping("/authenticate")
+	public String createAuthenticationToken() {
+		return "ok";
 	}
 }
