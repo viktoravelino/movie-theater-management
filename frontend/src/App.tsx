@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "./app/hooks";
 import { selectAuthState, signInRedux } from "./features/user/authSlice";
 import { useEffect } from "react";
 import { api } from "./services/api";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
 	const { isLogged } = useAppSelector(selectAuthState);
@@ -27,15 +28,11 @@ function App() {
 			) : (
 				// if the user is logged, show the application
 				<Routes>
-					<Route path="/" element={<Logged />} />
+					<Route path="/" element={<Dashboard />} />
 				</Routes>
 			)}
 		</div>
 	);
-}
-
-function Logged() {
-	return <div>Logged</div>;
 }
 
 export default App;

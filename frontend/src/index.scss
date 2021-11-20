@@ -3,3 +3,7 @@ $theme-colors: (
 );
 
 @import "~bootstrap/scss/bootstrap";
+
+.App {
+	height: 100vh;
+}
