@@ -28,7 +28,7 @@ export const authSlice = createSlice({
 
 export const { signInRedux, signOutRedux } = authSlice.actions;
 
-// export const selectJwtToken = (state: RootState) => state.auth.jwt;
+// export const selectJwtToken = (state: RootState) => state.auth.jwt;asd
 export const selectAuthState = (state: RootState) => state.auth;
 
 export default authSlice.reducer;
