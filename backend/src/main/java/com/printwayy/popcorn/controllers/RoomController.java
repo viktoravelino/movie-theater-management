@@ -32,4 +32,9 @@ public class RoomController {
 		return roomService.findAvailableRooms(date, startTime, endTime);
 	}
 
+	@GetMapping("/test")
+	public String test() {
+		return "ok";
+	}
+
 }
