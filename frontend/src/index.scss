@@ -2,8 +2,6 @@ $theme-colors: (
 	"primary": #508bfc,
 );
 
-@import "~bootstrap/scss/bootstrap";
+// $primary: map-get($theme-colors, "primary");
 
-.App {
-	height: 100vh;
-}
+@import "~bootstrap/scss/bootstrap";

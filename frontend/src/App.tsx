@@ -28,7 +28,7 @@ function App() {
 			) : (
 				// if the user is logged, show the application
 				<Routes>
-					<Route path="/" element={<Dashboard />} />
+					<Route path="/*" element={<Dashboard />} />
 				</Routes>
 			)}
 		</div>

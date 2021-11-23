@@ -8,7 +8,7 @@ export interface CounterState {
 
 const initialState: CounterState = {
 	jwt: null,
-	isLogged: true,
+	isLogged: false,
 };
 
 export const authSlice = createSlice({
