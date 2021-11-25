@@ -21,8 +21,15 @@ public class MovieService {
 	private SessionRepository sessionRepository;
 
 	public Movie save(Movie movie) {
-		if (movieRepository.existsByTitle(movie.getTitle())) {
-			throw new ResponseStatusException(HttpStatus.CONFLICT, "The movie title already exists.");
+		if (movie.getId() == null) {
+			if (movieRepository.existsByTitle(movie.getTitle())) {
+				throw new ResponseStatusException(HttpStatus.CONFLICT, "The movie title already exists.");
+			}
+		}
+		if (movie.getId() != null) {
+			if (movieRepository.existsByTitleAndIdNotLike(movie.getTitle(), movie.getId())) {
+				throw new ResponseStatusException(HttpStatus.CONFLICT, "The movie title already exists.");
+			}
 		}
 		movieRepository.save(movie);
 		return movie;
