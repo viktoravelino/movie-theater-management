@@ -10,7 +10,11 @@ import { Nav } from "react-bootstrap";
 import { SidebarMenuItem } from "./SidebarMenuItem";
 import { useNavigate } from "react-router-dom";
 
-export function Sidebar() {
+type SidebarProps = {
+	defaultEventKey: string;
+};
+
+export function Sidebar({ defaultEventKey }: SidebarProps) {
 	const navigate = useNavigate();
 
 	return (
@@ -24,7 +28,7 @@ export function Sidebar() {
 				{/* Sidebar header end */}
 				{/* Sidebar menu items */}
 				<Nav
-					defaultActiveKey="rooms"
+					defaultActiveKey={`${defaultEventKey}`}
 					onSelect={(selectedKey) => navigate(`/${selectedKey}`)}
 					className="nav-flush flex-column"
 					id="menu"

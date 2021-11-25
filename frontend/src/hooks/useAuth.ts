@@ -2,6 +2,7 @@ import { AxiosResponse } from "axios";
 import { useAppDispatch } from "../app/hooks";
 import { api } from "../services/api";
 import { signInRedux, signOutRedux } from "../features/user/authSlice";
+import { useNavigate } from "react-router";
 
 interface ApiResponse extends AxiosResponse {
 	data: {
@@ -11,6 +12,7 @@ interface ApiResponse extends AxiosResponse {
 
 export function useAuth() {
 	const dispatch = useAppDispatch();
+	const navigate = useNavigate();
 
 	async function signIn(username: string, password: string) {
 		const data = {
@@ -50,6 +52,8 @@ export function useAuth() {
 
 		// Delete the token from the headers
 		api.defaults.headers.common["Authorization"] = "";
+
+		navigate("/");
 	}
 
 	return {
