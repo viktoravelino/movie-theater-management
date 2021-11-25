@@ -43,6 +43,7 @@ public class AuthController {
 					authenticationRequest.getUsername(), authenticationRequest.getPassword()));
 			System.out.println(test);
 		} catch (AuthenticationException e) {
+			System.out.println("oi");
 			throw new Exception("Incorret username or password", e);
 		}
 
