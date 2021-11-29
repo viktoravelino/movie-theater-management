@@ -5,59 +5,72 @@ import { signInRedux, signOutRedux } from "../features/user/authSlice";
 import { useNavigate } from "react-router";
 
 interface ApiResponse extends AxiosResponse {
-	data: {
-		jwt: string;
-	};
+  data: {
+    jwt: string;
+  };
 }
 
 export function useAuth() {
-	const dispatch = useAppDispatch();
-	const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-	async function signIn(username: string, password: string) {
-		const data = {
-			username,
-			password,
-		};
-		try {
-			// Sign In requisition
-			const {
-				data: { jwt },
-			}: ApiResponse = await api.post("/auth/authenticate", data);
+  async function signIn(username: string, password: string) {
+    const data = {
+      username,
+      password,
+    };
+    try {
+      // Sign In requisition
+      const {
+        data: { jwt },
+      }: ApiResponse = await api.post("/auth/authenticate", data);
 
-			const token = `Bearer ${jwt}`;
+      const token = `${jwt}`;
+      //   const token = `Bearer ${jwt}`;
 
-			//save token on local storage
-			localStorage.setItem("token", token);
+      //save token on local storage
+      localStorage.setItem("token", token);
 
-			// Save token on redux
-			dispatch(signInRedux(token));
+      // Save token on redux
+      dispatch(signInRedux(token));
 
-			// Set the token into the headers
-			api.defaults.headers.common["Authorization"] = token;
-		} catch (error) {
-			alert("Username or password incorrect!");
-			console.log(error);
-		}
-	}
+      // Set the token into the headers
+      api.defaults.headers.common["Authorization"] = token;
+    } catch (error) {
+      alert("Username or password incorrect!");
+      console.log(error);
+    }
+  }
 
-	// function tokenValidation() {}
+  async function validateToken(token: string) {
+    try {
+      const response = await api.post(`/auth/validatetoken`, { token });
+      return true;
+    } catch (error: any) {
+      console.log(error.response);
+      if (error.response.data.message) {
+        // alert(error.response.data.message);
+      }
+      return false;
+    }
+  }
 
-	function logOut() {
-		// Delete from redux
-		dispatch(signOutRedux);
+  function logOut() {
+    // Delete from redux
+    dispatch(signOutRedux);
 
-		// Delete from localStorage
-		localStorage.removeItem("token");
+    // Delete from localStorage
+    localStorage.removeItem("token");
 
-		// Delete the token from the headers
-		api.defaults.headers.common["Authorization"] = "";
+    // Delete the token from the headers
+    api.defaults.headers.common["Authorization"] = "";
 
-		navigate("/");
-	}
+    navigate("/");
+  }
 
-	return {
-		signIn,
-		logOut,
-	};
+  return {
+    signIn,
+    logOut,
+    validateToken,
+  };
 }
