@@ -1,0 +1,42 @@
+@import "../../index.css";
+
+.moviesContentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.moviesContentContainer .paginationSection {
+  margin-top: 1.2rem;
+  /* // border: 2px solid $primary; */
+  width: 100%;
+}
+
+.moviesContentContainer .moviesContentHeader {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 1.5rem 0;
+}
+
+.moviesContentContainer .contentTable {
+  width: 100%;
+}
+
+.moviesContentContainer table {
+  font-size: 1rem;
+
+  max-width: 100%;
+  width: 100%;
+}
+.moviesContentContainer table tr {
+  text-align: center;
+  white-space: nowrap;
+  height: 2.2rem;
+}
+.moviesContentContainer table tr :first-child {
+  text-align: left;
+}
+.moviesContentContainer table tbody > tr {
+  /* // border-bottom: 1px solid $primary; */
+  /* border-bottom: 1px solid $primary; */
+}

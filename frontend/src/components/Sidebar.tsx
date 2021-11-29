@@ -18,10 +18,10 @@ export function Sidebar({ defaultEventKey }: SidebarProps) {
 	const navigate = useNavigate();
 
 	return (
-		<div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-primary">
-			<div className="d-flex flex-column px-sm-3 pt-2 text-white">
+		<div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 border-end">
+			<div className="d-flex flex-column px-sm-3 pt-2 ">
 				{/* Sidebar header */}
-				<span className="d-flex align-items-center justify-content-center py-3 mb-md-0  text-white text-decoration-none text-center">
+				<span className="d-flex align-items-center justify-content-center py-3 mb-md-0 text-decoration-none text-primary text-center">
 					<FontAwesomeIcon icon={faUserCircle} size="2x" />
 					<span className="fs-5 d-none d-sm-inline ms-3">Administrador</span>
 				</span>

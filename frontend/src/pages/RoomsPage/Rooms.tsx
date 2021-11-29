@@ -3,7 +3,7 @@ import { useApi } from "../../hooks/useApi";
 
 import { Room } from "../../types/types";
 
-import "./roomPageStyle.scss";
+import "./roomPageStyle.css";
 
 export function Rooms() {
 	const { getAllRooms } = useApi();
@@ -14,6 +14,7 @@ export function Rooms() {
 			const data = await getAllRooms();
 			setRoomsArray(data);
 		})();
+		// eslint-disable-next-line
 	}, []);
 
 	if (!roomsArray) {
@@ -32,7 +33,7 @@ export function Rooms() {
 				<tbody>
 					{roomsArray.map((room) => {
 						return (
-							<tr key={room.id}>
+							<tr key={room.id} className="border-bottom border-primary">
 								<td>{room.name}</td>
 								<td>{room.numberOfSeats}</td>
 							</tr>

@@ -1,0 +1,30 @@
+@import "../../index.css";
+
+.roomsContentContainer {
+  /* border: 2px solid black; */
+  display: flex;
+  justify-content: center;
+}
+.roomsContentContainer table {
+  /* border: 2px solid $primary; */
+
+  font-size: 1.2rem;
+
+  max-width: 50%;
+  width: 100%;
+}
+
+.roomsContentContainer table tr {
+  text-align: center;
+  white-space: nowrap;
+  height: 3rem;
+}
+
+.roomsContentContainer table tr :first-child {
+  text-align: left;
+  width: 100%;
+}
+
+.roomsContentContainer table tbody > tr {
+  /* border-bottom: 1px solid $primary; */
+}

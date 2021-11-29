@@ -13,7 +13,7 @@ export function SidebarMenuItem({ eventKey, icon, text }: NavItemProps) {
 		<Nav.Item>
 			<Nav.Link
 				eventKey={eventKey}
-				className="text-white text-center text-sm-start py-3 py-sm-3"
+				className="text-center text-sm-start py-3 py-sm-3"
 			>
 				<FontAwesomeIcon icon={icon} />{" "}
 				<span className="d-none d-sm-inline">{text}</span>
