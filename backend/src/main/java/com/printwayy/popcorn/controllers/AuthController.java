@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.printwayy.popcorn.models.auth.AuthenticationRequest;
 import com.printwayy.popcorn.models.auth.AuthenticationResponse;
+import com.printwayy.popcorn.models.auth.ValidationTokenRequest;
 import com.printwayy.popcorn.security.JwtUtil;
 
 @RestController
@@ -53,8 +54,22 @@ public class AuthController {
 		return ResponseEntity.ok(new AuthenticationResponse(jwt));
 	}
 
-	@GetMapping("/authenticate")
-	public String createAuthenticationToken() {
-		return "ok";
+//	@GetMapping("/authenticate")
+//	public String createAuthenticationToken() {
+//		return "ok";
+//	}
+
+	@PostMapping("/validatetoken")
+	public Boolean validateToken(@RequestBody ValidationTokenRequest validationTokenRequest) throws Exception {
+		String token = validationTokenRequest.getToken();
+		String username = jwtTokenUtil.extractUsername(token);
+		final UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+		try {
+			jwtTokenUtil.validateToken(token, userDetails);
+			return true;
+		} catch (Exception e) {
+
+			return false;
+		}
 	}
 }
