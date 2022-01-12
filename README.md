@@ -1,3 +1,7 @@
+# Overview
+
+This application is to simulate a management system for a movie theatre. Within the system, you can create new movie sessions, delete them, and other functionalities focused on a movie theatre.
+
 # Application
 
 - Clone the repository
